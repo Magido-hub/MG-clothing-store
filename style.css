@@ -644,9 +644,15 @@ form a{
    transition: transform 1s ;
 }
 
+.menu-icon{
+   position: relative;
+   z-index: 1000;
+}
 
+#menuItems{ 
+   transition:max-height 0.3s ease-out;
 
-
+}
 
 
 
