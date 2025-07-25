@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset = "UTF-8">
+<link rel="stylesheet" href="style.css">
+<title>About MG online clothing</title>
+</head>
+
+<body>
+      <div class="container">   
+   <div class="navbar"> 
+<nav>
+<ul id="MenuItems">
+<li> <a href="index.html">Home</a>  </li>
+<li> <a href="products.html">Products</a>  </li>
+<li> <a href="about.html">About</a>  </li>
+<li> <a href="contact.html">Contact</a>  </li>
+<li> <a href="account.html">Account</a>  </li>
+</ul>
+</nav>
+<a href="cart.html"><img src="picss/shopping cart.jpg" alt="Cart" width="30px" height="30px" ><span id="cartCount"
+></span></a>
+<img src="picss/bullet-menu-icon-free-vector.jpg" class="menu-icon" onclick="menutoggle()" >
+   </div>
+        </div>
+
+<!---------account page------------->
+  <div class="account-page">
+     <div class="container">
+<div class="row">
+      <div class="col-2">
+        <img src="picss/Screenshot_20250710_075702_WhatsApp.jpg">
+             </div>
+
+             <div class="col-2">
+        <div class="form-container">
+                <div class="form-btn">
+                   <span onclick="loginToggle()">Login</span>
+                    <span onclick="registerToggle()">Register</span>
+                    <hr id="Indicator">
+                </div>
+
+                <form id="LoginForm" onsubmit="login(event)">
+                    <input type="email"  id="loginEmail"   placeholder="Email" required>
+                    <input type="password"  id="loginPassword" placeholder="Password" required>
+                    <button type="submit" class="btn">Login</button>
+                    <a href="">Forgot password</a>
+                </form>
+                
+
+                <form id="RegForm" onsubmit="register(event)">
+                    <input type="text" id="registerUsername"  placeholder="Username" required>
+                    <input type="email" id="registerEmail"   placeholder="Email" required>
+                    <input type="password" id="registerPassword"   placeholder="Password" required>
+                    <button type="submit" class="btn">Register</button>
+                </form>
+        </div>
+             </div>
+          </div>
+      </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<!------------Footer---------->
+
+<div class="footer">
+
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>App is currently not available. Coming soon!</p>
+                <div class="app-logo">
+                    <img src="picss/google-play-6647242_960_720.png">
+                    <img src="picss/2560px-Download_on_the_App_Store_Badge.svg.png">
+                </div>
+            </div>
+
+             <div class="footer-col-2">
+                
+                <p>Proudly local, globally inspired. Our clothing reflects
+                    culture, confidence, and creativity.
+                </p>
+            </div>
+
+            <div class="footer-col-3">
+                <h3>Useful links</h3>
+                <ul>
+                    <li>Coupons</li>
+                     <li>Blog</li>
+                      <li>Return Policy</li>
+                       <li>Join Affiliate</li>
+                </ul>
+            </div>
+
+             <div class="footer-col-4">
+                <h3>Follow us</h3>
+                <ul>
+                    <li>Facebook</li>
+                     <li>Twitter</li>
+                      <li>Instagram</li>
+                       <li>Tiktok</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Copyright 2025 - Mthembu Gift online store</p>
+    </div>
+</div>
+
+
+<!------------js for toggle menu--------->
+<script>
+    var MenuItems = document.getElementById("MenuItems");
+
+    MenuItems.style.maxHeight = "0px";
+
+    function menutoggle(){
+        if(MenuItems.style.maxHeight =="0px")
+        {
+            MenuItems.style.maxHeight ="200px";
+        }
+        else{
+            MenuItems.style.maxHeight =="0px";
+        }
+    }
+
+    document.querySelectorAll("#menuItems a").forEach(link => { link.addEventListener("click", () => 
+    { menuItems.style.maxHeight = "0px";});});
+</script>
+
+<!---------js for toggle form--------->
+<script>
+
+    var LoginForm =  document.getElementById("LoginForm");
+    var RegForm = document.getElementById("RegForm");
+    var Indicator = document.getElementById("Indicator");
+
+   function registerToggle(){
+    RegForm.style.transform = "translateX(0px)";
+    LoginForm.style.transform = "translateX(0px)";
+    Indicator.style.transform = "translateX(100px)";
+   }
+
+   function loginToggle(){
+    RegForm.style.transform = "translateX(300px)";
+    LoginForm.style.transform = "translateX(300px)";
+    Indicator.style.transform = "translateX(0px)";
+   }
+
+
+
+</script>
+
+
+<!----------FIREBASE SDK------>
+
+<script
+    src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js">
+</script>
+
+<script
+    src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js">
+</script>
+
+<script>
+    const firebaseConfig = {apiKey: "AIzaSyBWo8gejhNydWgujaEW50_ibWvYcXZCiBs", projectId: "mg-online-store-16058", appId: 
+    "1:655478246298:web:1324d8868d3efd9e98c823"}
+</script>
+
+
+<!------Firebase config------->
+
+<script>
+
+firebase.initializeApp(firebaseConfig);
+
+function register(e){
+e.preventDefault(); //prevent from reloading..
+
+const email = document.getElementById("registerEmail").value;
+const password = document.getElementById("registerPassword").value;
+const username = document.getElementById("registerUsername").value;
+
+firebase.auth().createUserWithEmailAndPassword(email, password)
+.then((userCredential) => { return userCredential.user.updateProfile({
+    displayName: username
+});
+})
+.then(() => { alert("Account created succesfully!"); 
+    window.location.href = "index.html";
+})
+
+.catch((error) => { alert("Registration failed :" + error.message);});
+
+}
+
+function login(e){
+e.preventDefault(); //prevent form from reloading
+const email = document.getElementById("loginEmail").value;
+const password = document.getElementById("loginPassword").value;
+
+firebase.auth().signInWithEmailAndPassword(email, password)
+.then((userCredential) => {alert("Login successfull"); 
+    console.log("Logged in :",userCredential.user);
+    window.location.href = "index.html";
+})
+
+.catch((error) => {alert("Login failed : " + error.message);
+
+});
+
+
+}
+
+</script>
+
+<script>
+    firebase.auth().onAuthStateChanged((user) => {
+        if(user && user.displayName) {
+            document.getElementById("welcomeUser").textContent ="Welcome, " + user.displayName;
+        }
+    });
+</script>
+
+
+<!---------Dialog box for cart system------->
+
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+    const showDialog =localStorage.getItem("showLoginDialog");
+    if(showDialog === "true"){
+        const dialog = document.createElement("div");
+        dialog.textContent = "Please login or Register to use the cart. ";
+        dialog.style.position = "fixed";
+        dialog.style.bottom = "20px";
+        dialog.style.left ="50%";
+        dialog.style.transform = "translateX(-50%)";
+        dialog.style.background = "#333";
+        dialog.style.color = "#fff";
+        dialog.style.padding = "12px 20px";
+        dialog.style.borderRadius = "10px";
+        dialog.style.fontSize = "15px";
+        dialog.style.boxShadow ="0 4px 10px rgba(0, 0, 0, 0, 3)";
+        dialog.style.zIndex = "9999";
+        dialog.style.opacity = "0";
+        dialog.style.transition = "opacity 0.5s ease-in-out";
+
+        document.body.appendChild(dialog);
+        setTimeout(() => { dialog.style.opacity ="1";}, 100);
+
+        setTimeout(() => { dialog.style.opacity ="0";
+            setTimeout(() => { dialog.remove();}, 500);
+
+            localStorage.removeItem("showLoginDialog"); }, 5000);
+    }
+});
+</script>
+
+
+</body>
+
+
+
+</html>

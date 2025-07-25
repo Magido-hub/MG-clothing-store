@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head> <meta charset="UTF-8"> 
+        <title>Checkout</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #fdfdfd;
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    text-align: center;
+    padding: 30px 0;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0 ,0 , 0.05);
+}
+
+.header img{
+    width: 100px;
+    height:auto;
+}
+
+.containerr{
+    text-align: center;
+    padding:60px 20px;
+}
+
+.containerr p{
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+.btn{
+    background-color: #333;
+    color:#fff;
+    padding:12px 24px;
+    font-size: 16px;
+    border:none;
+    border-radius: 6px;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+
+
+        </style>
+    </head>
+
+
+    <body>
+
+        <div class="container">
+<div class="navbar">
+
+<nav>
+<ul id="MenuItems">
+<li> <a href="index.html">Home</a>  </li>
+<li> <a href="products.html">Products</a>  </li>
+<li> <a href="about.html">About</a>  </li>
+<li> <a href="contact.html">Contact</a>  </li>
+<li> <a href="account.html">Account</a>  </li>
+</ul>
+
+</nav>
+<a href="cart.html"><img src="picss/shopping cart.jpg" alt="Cart" width="30px" height="30px" ><span id="cartCount"
+></span></a>
+<img src="picss/bullet-menu-icon-free-vector.jpg" class="menu-icon" onclick="menutoggle()" >
+</div>
+
+    </div>
+
+<div class="header">
+    <img src="picss/Screenshot_20250710_075702_WhatsApp.jpg" alt="Brand Logo">
+    <h1>Contact us</h1>
+</div>
+
+<div class="containerr">
+    <p>
+        This is the contact page where brand information and business details will be displayed upon purchase of the website.
+    </p>
+    <p>Here you can later show phone numbers, email addresses, business hours, social media links.</p>
+
+    <button class="btn" disabled>Contact details coming soon!</button>
+</div>
+
+
+<!------------cart icon-->
+<script>
+ function updateCartCount(){
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+      document.getElementById("cartCount").innerText =count;
+ }
+ if(document.getElementById("cartCount")) {
+    updateCartCount();
+ }
+ </script>
+
+
+
+
+
+    </body>
+</html>

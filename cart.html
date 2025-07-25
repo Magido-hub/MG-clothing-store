@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart</title>
+  
+  <style>
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: rgb(165, 179, 45);
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  color: #333;
+}
+
+    .cart-item{
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0;
+      gap: 15px;
+    }
+
+    .cart-item img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 10px;     
+    }
+
+   #cartItems img{
+    width: 80px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px ;
+   }
+
+
+    .cart-details{
+    flex:1;
+    font-size: 17px;
+    line-height:  1.6;
+    }
+
+    .cart-details p{
+    margin: 0 5px;
+    }
+
+    .cart-actions button{
+    margin: 5px 4px 0 0;
+    padding: 6px 12px;
+    font-size: 15px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+    cursor:pointer;
+    transition: background-color 0.3s ease;
+    }
+
+    .cart-actions button:hover{
+      background-color: #333;
+    }
+
+#subtotal{
+  text-align: right;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+.subtotal p{
+  font-size: 20px;
+}
+h1{
+  text-align: center;
+}
+
+.proceed{
+  display:inline-block;
+    background: #000;
+    color:#fff;
+    padding:8px 30px;
+    margin:30px 0;
+    border-radius: 30px;
+    transition: background 0.5s;
+}
+
+</style>
+</head>
+
+
+<body>
+
+<h1>Your Cart</h1>
+ <div id="cartItems"></div>
+ <p class="subtotal">Subtotal: R <span id="subtotal">0</span></p>
+ 
+ <div style="text-align: center; margin-top: 40px;">
+                  <button onclick="goToCheckout()" class="proceed">Proceed to Checkout</button>
+                  
+                  </div>
+
+  <script>
+
+      function loadCart() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const cartDiv = document.getElementById("cartItems");
+
+        const subtotalSpan = document.getElementById("subtotal");
+
+        let subtotal = 0;
+        cartDiv.innerHTML = "";
+
+        if(cart.length === 0) {
+          cartDiv.innerHTML = "<p> Your cart is empty.  </p>";
+     
+          subtotalSpan.innerHTML ="0";
+
+          return;
+          }
+
+         cart.forEach((item, index) => { const itemSubtotal = item.price * item.quantity;
+                                         subtotal += itemSubtotal;
+
+           const itemHTML = ` <div class= "cart-item">
+                                 <img src = "${item.image}" alt="${item.name}"/>
+                                 <div class="cart-details">
+                                  <p><strong> ${item.name} </strong> </p>
+                                  <p>Price: R${item.price}</p>
+                                  <p>Size: ${item.size || "N/A"}</p>
+                                  <p>Quantity : ${item.quantity}</p>
+                                  <p>Item Total: R ${itemSubtotal.toFixed(2)}</p>
+                                  <div class="cart-actions"> 
+                                    <button onclick="changeQty(${index}, 1)">+</button>
+                                    <button onclick="changeQty(${index}, -1)">-</button>
+                                    <button onclick="RemoveItem(${index})">Remove</button>
+                                    </div>
+                                    </div> ;
+       </div> `;
+
+                       cartDiv.innerHTML += itemHTML;
+
+         });
+
+            subtotalSpan.innerText = subtotal;
+      }
+
+             function changeQty(index, change) {
+               const cart= JSON.parse(localStorage.getItem("cart")) || [];
+
+                      cart[index].quantity += change;
+
+                      if(cart[index].quantity <= 0){
+                        cart.splice(index, 1);
+                      }
+
+                      localStorage.setItem("cart", JSON.stringify(cart));
+                      loadCart();
+
+             }
+
+             function RemoveItem(index) {
+                 const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                      cart.splice(index, 1);
+                      localStorage.setItem("cart", JSON.stringify(cart));
+                      loadCart();
+                }
+
+                 loadCart();
+
+                 
+
+   </script>
+
+ <script>
+  function goToCheckout() {
+    window.location.href = "payment.html";
+  }
+ </script>
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

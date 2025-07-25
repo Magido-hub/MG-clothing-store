@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset = "UTF-8">
+<meta name="viewport" content="width=device-width", initial
+scale="1.0">
+<title>All Products - MG Store  | E-commerse store</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?
+family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-
+awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    
+ <div class="container">
+<div class="navbar">
+<div class="logo">
+
+    <img src="picss/Screenshot_20250710_075702_WhatsApp.jpg" width="125px">
+</div>
+<nav>
+<ul id="MenuItems">
+<li> <a href="index.html">Home</a>  </li>
+<li> <a href="products.html">Products</a>  </li>
+<li> <a href="about.html">About</a>  </li>
+<li> <a href="contact.html">Contact</a>  </li>
+<li> <a href="account.html">Account</a>  </li>
+</ul>
+
+</nav>
+<a href="cart.html"> <img src="picss/shopping cart.jpg"  alt="Cart" width="30px" height="30px" ><span id="cartCount"></span></a> 
+<img src="picss/bullet-menu-icon-free-vector.jpg" class="menu-icon" onclick="menutoggle()" >
+</div>
+
+    </div>
+  
+
+  
+<div class="small-container">
+
+<div class="row">
+    <h2 >Graphic Tee</h2>
+</div>
+
+
+
+
+     <div class="small-container single-product">
+    <div class="row">
+<div class="col-2">
+    <img src="picss/pic8.jpg"  id="ProductImg"     width="100%"> </a>
+
+<div class="small-img-row">
+   <div class="small-img-col">
+    <img src="picss/Tee1.jpg"    class="smallImg"    width="100%">
+</div>
+
+<div class="small-img-col">
+    <img src="picss/Tee2.jpg"   class="smallImg"    width="100%">
+</div>
+
+<div class="small-img-col">
+    <img src="picss/Tee3.jpg"   class="smallImg"    width="100%">
+</div>
+
+<div class="small-img-col">
+    <img src="picss/Tee4.jpg"      class="smallImg"    width="100%">
+</div>
+
+</div>
+
+
+
+
+
+</div>
+<div class="col-2">
+    <p>Home / Graphic Tee</p>
+    <h1>Graphic Tee</h1>
+    <h4>R199.99</h4>
+    <select id="productSize">
+        <option>XXXL</option>
+        <option>XXL</option>
+        <option>XL</option>
+        <option>Large</option>
+        <option>Meduim</option>
+        <option>Small</option>
+    </select>
+    <!------------Quantity box-------->
+    <input type="number" id="productQty" value="1"  min="1">
+
+    <a href="#" class="btn" onclick="checkLoginBeforeCart();return false;">Add to Cart</a>
+    <h3>Product Details  <i class="fa fa-indent"></i></h3>
+    <br>
+    <p>Make a statement with this bold Graphic Tee. Designed with vibrant prints and modern
+        street style in mind, it blends creativity with comfort. The soft cotton fabric 
+        ensures a breathable fit, while the unique artwork adds a touch of personality
+        to any casual outfit. Whether layered or worn solo, it's the ultimate everyday
+        essential.
+    </p>
+</div>
+
+</div>
+     </div>
+
+     
+     </div>
+
+     
+
+
+<!------------Footer---------->
+
+<div class="footer">
+
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>App is currently not available. Coming soon!</p>
+                <div class="app-logo">
+                    <img src="picss/google-play-6647242_960_720.png">
+                    <img src="picss/2560px-Download_on_the_App_Store_Badge.svg.png">
+                </div>
+            </div>
+
+             <div class="footer-col-2">
+                
+                <p>Proudly local, globally inspired. Our clothing reflects
+                    culture, confidence, and creativity.
+                </p>
+            </div>
+
+            <div class="footer-col-3">
+                <h3>Useful links</h3>
+                <ul>
+                    <li>Coupons</li>
+                     <li>Blog</li>
+                      <li>Return Policy</li>
+                       <li>Join Affiliate</li>
+                </ul>
+            </div>
+
+             <div class="footer-col-4">
+                <h3>Follow us</h3>
+                <ul>
+                    <li>Facebook</li>
+                     <li>Twitter</li>
+                      <li>Instagram</li>
+                       <li>Tiktok</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Copyright 2025 - Mthembu Gift online store</p>
+    </div>
+</div>
+
+<!------------js for toggle menu--------->
+<script>
+    var MenuItems = document.getElementById("MenuItems");
+
+    MenuItems.style.maxHeight = "0px";
+
+    function menutoggle(){
+        if(MenuItems.style.maxHeight =="0px")
+        {
+            MenuItems.style.maxHeight ="200px";
+        }
+        else{
+            MenuItems.style.maxHeight =="0px";
+        }
+    }
+
+    document.querySelectorAll("#menuItems a").forEach(link => { link.addEventListener("click", () => 
+    { menuItems.style.maxHeight = "0px";});});
+
+
+    var ProductImg = document.getElementById("ProductImg");
+var smallImg = document.getElementsByClassName("smallImg");
+
+smallImg[0].onclick = function()
+{
+   ProductImg.src = smallImg[0].src;
+}
+
+smallImg[1].onclick = function()
+{
+    ProductImg.src = smallImg[1].src;
+}
+
+smallImg[2].onclick = function()
+{
+    ProductImg.src = smallImg[2].src;
+}
+
+smallImg[3].onclick = function()
+{
+    ProductImg.src = smallImg[3].src;
+}
+
+
+var ProductImg = document.getElementById("ProductImg");
+var smallImg = document.getElementsByClassName("smallImg");
+
+for(let i = 0; i < smallImg.length; i++) {
+    smallImg[i].onclick = function() {
+        ProductImg.src = smallImg[i].src;
+    }
+}
+</script>
+
+
+<!---------js for product gallery-->
+<script>
+var ProductImg = document.getElementById("ProductImg");
+var smallImg = document.getElementsByClassName("smallImg");
+
+for(let i = 0; i < smallImg.length; i++) {
+    smallImg[i].onclick = function() {
+        ProductImg.src = smallImg[i].src;
+    }
+}
+
+
+</script>
+
+<!-------Cart system------>
+
+<script>
+
+function addToCart() {
+     const size = document.getElementById("productSize").value;
+         const quantity = parseInt(document.getElementById("productQty").value);
+
+         const product = { name: "Black Leather Jacket(Size: " + size + ")", 
+                                   price: 350, 
+                                   quantity: quantity, 
+                                   image:"picss/pic7.jpg", 
+                                   size: size};
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let existing = cart.find(item => item.name === product.name && item.size ===size);
+
+         if(existing) {
+            existing.quantity += quantity;
+         }
+         else{
+            cart.push(product);
+         }
+
+         localStorage.setItem("cart", JSON.stringify(cart));
+               alert("Added to cart!");
+               updateCartCount();
+        }
+
+               function updateCartCount(){
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const count = cart.reduce((sum,item) => sum + item.quantity, 0);
+                const cartCount = document.getElementById("cartCount");
+
+                  if(cartCount) {
+                    cartCount.innerText = count;
+                  }
+               }
+               updateCartCount();
+
+</script>
+
+<button onclick="addToCart()">Add to cart </button>
+
+
+
+<!--------Cart protection system---------->
+
+<script
+src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js">
+</script>
+ 
+<script 
+src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+
+<script>
+const firebaseConfig = { apiKey:"AIzaSyBWo8gejhNydWgujaEW50_ibWvYcXZCiBs", authDomain:"mg-online-store-16058",
+    appId:"1:655478246298:web:1324d8868d3efd9e98c823"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+
+
+function checkLoginBeforeCart() {
+    firebase.auth().onAuthStateChanged((user) => {
+        if(user) {
+            addToCart();
+        }
+        else{
+            localStorage.setItem("showLoginDialog", "true");
+        window.location.href = "account.html";
+          }
+       
+    });
+
+}
+
+</script>
+
+<script>
+    firebase.auth().onAuthStateChanged((user) => {
+        if(user && user.displayName) {
+            document.getElementById("welcomeUser").textContent ="Welcome, " + user.displayName;
+        }
+    });
+</script>
+
+
+
+
+
+</body>
+
+
+</html>

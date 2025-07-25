@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset = "UTF-8">
+<link rel="stylesheet" href="style.css">
+<title>About MG online clothing</title>
+</head>
+
+<body>
+      <div class="container">   
+   <div class="navbar"> 
+<nav>
+<ul id="MenuItems">
+<li> <a href="index.html">Home</a>  </li>
+<li> <a href="products.html">Products</a>  </li>
+<li> <a href="about.html">About</a>  </li>
+<li> <a href="contact.html">Contact</a>  </li>
+<li> <a href="account.html">Account</a>  </li>
+</ul>
+</nav>
+<a href="cart.html"><img src="picss/shopping cart.jpg" alt="Cart" width="30px" height="30px" ><span id="cartCount"
+></span></a>
+<img src="picss/bullet-menu-icon-free-vector.jpg" class="menu-icon" onclick="menutoggle()" >
+   </div>
+        </div>
+
+        <div class="formation">
+   <div class="info">
+ <h2>About us</h2>
+  <p> Welcome to MG online clothing brand,where fashion meets purpose. We are more than
+    just a clothing brand - we are a movement built around self-expression, confidence,
+    and everyday comfort. Inspired by modern streetwear and timeless style, our collections
+    are made for those who are bold, driven, and unapologetically authentic.
+     <br>
+     Founded in South Africa, we believe that what you wear should tell your story. Every item
+     in our store is carefully curated to represent quality, creativity, and individuality -
+     without breaking the bank. Whether you are dressing up, dressing down, or making a statement,
+     we've got you covered
+     <br>
+     <div id="state">
+     Join the MG online clothing community and redefine your style - One outfit at a time!</div>
+  </p>
+
+  </div>     
+
+  
+
+  <div class="section-1">
+    <h2>Our Mission</h2>
+    <p>To empower individuals through quality fashion that tells a story, sparks confidence,
+        and inspires self-expression.
+    </p>
+  </div>
+
+  <div class="section-2">
+<h2>How we started</h2>
+<p>Founded in 2025 in South Africa, our journey began with a passion for design and culture.
+    What started as a small dream grew into a bold fashion movement - one drop at a time!</p>
+
+</div>
+
+<div class="section-3">
+    <h2>Why choose us?</h2>
+    <p>
+    <ul>
+        <li>Locally inspired designs</li>
+        <li>Limited releases - no mass production</li>
+        <li>Premium quality at fair prices</li>
+        <li>Fast and reliable shipping within South Africa</li>
+    </ul>
+    </p>
+</div>
+
+<div class="section-4">
+    <h2>Our Motto</h2>
+    <p>
+    <blockquote>Wear your story. Live you style!</blockquote>
+    </p>
+</div>
+ 
+     </div>
+  
+<div class="circle-slider">
+    <div class="circle-track">
+    <div class="slide active"><img src="picss/pic1.jpg" alt="1"></div>
+    <div class="slide"><img src="picss/pic7.jpg" alt="2"></div>
+    <div class="slide"><img src="picss/test1.jpg" alt="3"></div>
+    <div class="slide"><img src="picss/test2.jpg" alt="4"></div>
+
+    </div>
+         
+</div>
+
+
+
+<br>
+<!------------Footer---------->
+
+<div class="footer">
+
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>App is currently not available. Coming soon!</p>
+                <div class="app-logo">
+                    <img src="picss/google-play-6647242_960_720.png">
+                    <img src="picss/2560px-Download_on_the_App_Store_Badge.svg.png">
+                </div>
+            </div>
+
+             <div class="footer-col-2">
+                
+                <p>Proudly local, globally inspired. Our clothing reflects
+                    culture, confidence, and creativity.
+                </p>
+            </div>
+
+            <div class="footer-col-3">
+                <h3>Useful links</h3>
+                <ul>
+                    <li>Coupons</li>
+                     <li>Blog</li>
+                      <li>Return Policy</li>
+                       <li>Join Affiliate</li>
+                </ul>
+            </div>
+
+             <div class="footer-col-4">
+                <h3>Follow us</h3>
+                <ul>
+                    <li>Facebook</li>
+                     <li>Twitter</li>
+                      <li>Instagram</li>
+                       <li>Tiktok</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Copyright 2025 - Mthembu Gift online store</p>
+    </div>
+</div>
+
+
+
+
+<!------------cart icon-->
+<script>
+ function updateCartCount(){
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+      document.getElementById("cartCount").innerText =count;
+ }
+ if(document.getElementById("cartCount")) {
+    updateCartCount();
+ }
+ </script>
+
+
+<!------------js for toggle menu--------->
+<script>
+    var MenuItems = document.getElementById("MenuItems");
+
+    MenuItems.style.maxHeight = "0px";
+
+    function menutoggle(){
+        if(MenuItems.style.maxHeight ==="0px")
+        {
+            MenuItems.style.maxHeight ="200px";
+        }
+        else{
+            MenuItems.style.maxHeight ="0px";
+        }
+    }
+
+    document.querySelectorAll("#menuItems a").forEach(link => { link.addEventListener("click", () => 
+    { menuItems.style.maxHeight = "0px";});});
+</script>
+
+
+<script>
+
+const slides = document.querySelectorAll(".slide");
+let index= 0;
+
+  function showSlides(i) {
+   slides.forEach((slide) => 
+    slide.classList.remove("active") );
+
+  slides[i].classList.add("active");
+  }
+
+  function rotateSlides(){
+    index = (index + 1)% slides.length;
+    showSlides(index);
+}
+
+showSlides(index);
+setInterval(rotateSlides, 4000);
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+</html>
