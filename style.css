@@ -671,13 +671,13 @@ form a{
 .circle-track{
    flex-direction:column;
    align-items: center;
-   gap:10px;
+   gap:6px;
 }
 
 .slide{
    flex: 0 0 auto;
    width:90%;
-   height: 200px;
+   height: 500px;
    margin: 0 auto;
    transform: scale(0.9);
    filter: blur(2px) brightness(70%)
