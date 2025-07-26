@@ -704,24 +704,24 @@ form a{
 .cart-item img, #cartItems img{
 width:100%;
 height:auto;
-max-width: 400px;
+max-width: 600px;
 }
 
 .cart-details{
-   font-size: 20px;
+   font-size: 30px;
    line-height: 1.9;
 }
 
 .cart-actions{
-   font-size: 20px;
+   font-size: 30px;
    padding: 10px 14px;
 }
 
 .subtotal p, #subtotal{
-   font-size: 24px;
+   font-size: 30px;
 }
 
 h1{
-   font-size: 29px;
+   font-size: 38px;
 }
 }
