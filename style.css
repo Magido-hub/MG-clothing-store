@@ -289,7 +289,7 @@ ul{
 
 /*---------------media query-----------*/
 
-@media only screen and (max-width:800px){
+@media only screen and (max-width:600px){
    nav ul{
       position:absolute;
       top:70px;
@@ -701,5 +701,27 @@ form a{
    object-fit: cover;
 }
 
+.cart-item img, #cartItems img{
+width:100%;
+height:auto;
+max-width: 400px;
+}
 
+.cart-details{
+   font-size: 20px;
+   line-height: 1.9;
+}
+
+.cart-actions{
+   font-size: 20px;
+   padding: 10px 14px;
+}
+
+.subtotal p, #subtotal{
+   font-size: 24px;
+}
+
+h1{
+   font-size: 29px;
+}
 }
