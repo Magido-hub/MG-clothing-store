@@ -292,12 +292,13 @@ ul{
 @media only screen and (max-width:600px){
    nav ul{
       position:absolute;
-      top:70px;
+      top:60px;
       left:0;
       background:#333;
       width:100%;
       overflow: hidden;
       transition: max-height 0.7s;
+      z-index: 999;
    }
    nav ul li{
       display: block;
@@ -311,6 +312,11 @@ ul{
    .menu-icon{
       display: block;
       cursor:pointer;
+   }
+
+   .navbar{
+      position: relative;
+      z-index: 1000;
    }
 }
 
